@@ -127,6 +127,7 @@ notAlphabetical =
   destructObjectAssignment: '{keyC, keyB, keyA} = object'
   destructObjectAssignmentWithThis: '{keyC, @keyB, keyA} = object'
 
+
 describe 'alphabetize_keys', ->
   before ->
     coffeelint.registerRule AlphabetizeKeys
