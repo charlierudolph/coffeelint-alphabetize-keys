@@ -55,6 +55,14 @@ alphabetical =
   destructObjectArgument: 'fn = ({keyA, keyB, keyC}) ->'
   destructObjectAssignment: '{keyA, keyB, keyC} = object'
   destructObjectAssignmentWithThis: '{keyA, @keyB, keyC} = object'
+  # coffeelint: disable=no_interpolation_in_single_quotes
+  objectWithInterpolatedKeys: '''
+    object =
+      keyB: 2
+      "#{keyA}": 1
+      keyC: 3
+  '''
+  # coffeelint: enable=no_interpolation_in_single_quotes
 
 
 notAlphabetical =
@@ -119,15 +127,6 @@ notAlphabetical =
   destructObjectAssignment: '{keyC, keyB, keyA} = object'
   destructObjectAssignmentWithThis: '{keyC, @keyB, keyA} = object'
 
-# coffeelint: disable=no_interpolation_in_single_quotes
-objectWithInterpolatedKeys = '''
-  object =
-    keyB: 2
-    "#{keyA}": 1
-    keyC: 3
-'''
-# coffeelint: enable=no_interpolation_in_single_quotes
-
 describe 'alphabetize_keys', ->
   before ->
     coffeelint.registerRule AlphabetizeKeys
@@ -146,7 +145,3 @@ describe 'alphabetize_keys', ->
           errors = coffeelint.lint notAlphabetical[name]
           expect(errors).to.have.lengthOf 1
           expect(errors[0].rule).to.eql 'alphabetize_keys'
-
-  it 'it ignores keys that are string interpolated', ->
-    errors = coffeelint.lint objectWithInterpolatedKeys
-    expect(errors).to.be.empty
