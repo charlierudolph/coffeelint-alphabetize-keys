@@ -63,6 +63,14 @@ alphabetical =
   destructObjectArgument: 'fn = ({keyA, keyB, keyC}) ->'
   destructObjectAssignment: '{keyA, keyB, keyC} = object'
   destructObjectAssignmentWithThis: '{keyA, @keyB, keyC} = object'
+  # coffeelint: disable=no_interpolation_in_single_quotes
+  objectWithInterpolatedKeys: '''
+    object =
+      keyB: 2
+      "#{keyA}": 1
+      keyC: 3
+  '''
+  # coffeelint: enable=no_interpolation_in_single_quotes
 
 
 notAlphabetical =
