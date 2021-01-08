@@ -1,3 +1,5 @@
+> **This repository is archived. If you'd like to fork and take over the npm module, please contact me.**
+
 # coffeelint-alphabetize-keys
 
 [![NPM Version](https://img.shields.io/npm/v/coffeelint-alphabetize-keys.svg)](https://www.npmjs.com/package/coffeelint-alphabetize-keys)
@@ -32,6 +34,7 @@ Put this in your coffeelint config:
 ```coffee
 {keyA, keyB, keyC} # Good
 {keyC, keyB, keyA} # Bad
+
 ```
 
 The rule applies to both defining and destructing objects.
